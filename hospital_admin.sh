@@ -37,7 +37,7 @@ run_system_setup() {
     secure_data
 
     echo "=================================="
-    echo "System Environment Secured"
+    echo "KNH System Environment Secured Successfully"
     echo "Security completed on: $(date)"
     echo "=================================="
 }
