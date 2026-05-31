@@ -33,8 +33,13 @@ secure_data() {
 
 run_system_setup() {
 
-    # Christian writes here
+    initialize_system
+    secure_data
 
+    echo "=================================="
+    echo "System Environment Secured"
+    date
+    echo "=================================="
 }
 
 # Execute Script
