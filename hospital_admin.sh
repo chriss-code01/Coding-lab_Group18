@@ -38,7 +38,7 @@ run_system_setup() {
 
     echo "=================================="
     echo "System Environment Secured"
-    date
+    echo "Security completed on: $(date)"
     echo "=================================="
 }
 
