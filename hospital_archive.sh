@@ -49,7 +49,7 @@ if [ -f active_logs/water_usage_log.log ]; then
 fi
 
 echo "=================================="
-echo "Log rotation completed perfeclty."
+echo "Log rotation completed sucessfully"
 echo "=================================="
 # =========================================
 
