@@ -19,12 +19,30 @@ initialize_system() {
 # Member 2 - Michel Nerlin Cyusa
 # secure_data()
 # =========================================
-
 secure_data() {
+    echo "====================================================="
+    echo "Applying security permissions..."
+    echo "====================================================="
 
-    # Michel writes here
+    # Ensure the target directory exists before running chmod
+    if [ -d "active_logs" ]; then
+        # Lock down the directory
+        chmod 700 active_logs
+        
+        # Lock down all files inside securely, including hidden ones
+        find active_logs -type f -exec chmod 600 {} + 2>/dev/null
 
+        echo "Updated Permissions:"
+        ls -ld active_logs
+        echo "Directory Contents:"
+        ls -l active_logs
+    else
+        echo "Error: active_logs directory not found."
+    fi
+
+    echo "Security permissions applied successfully."
 }
+
 
 # =========================================
 # Member 3 - Muragwa Hirwa Christian
