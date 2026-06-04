@@ -40,7 +40,7 @@ secure_data() {
         echo "Error: active_logs directory not found."
     fi
 
-    echo "Security permissions applied successfully."
+    echo "Security permissions applied."
 }
 
 
