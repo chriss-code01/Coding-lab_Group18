@@ -11,7 +11,21 @@
 
 process_vitals() {
 
-    # Favour writes here
+  echo "=================================="
+    echo "Processing critical patient vitals..."
+    echo "=================================="
+
+    mkdir -p reports
+
+    grep "CRITICAL" active_logs/heart_rate_log.log active_logs/temperature_log.log 2>/dev/null | \
+    awk -F'|' '
+    {
+        printf "Timestamp: %s | Device_ID: %s | Value: %s\n",
+        $1, $2, $3
+    }
+    ' > reports/critical_alerts.txt
+
+		    echo "Critical alerts saved Successfully."
 
 }
 
