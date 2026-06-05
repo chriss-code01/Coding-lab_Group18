@@ -72,8 +72,13 @@ secure_data() {
 
 run_system_setup() {
 
-    # Christian writes here
+    initialize_system
+    secure_data
 
+    echo "=================================="
+    echo "KNH System Environment Secured Successfully"
+    echo "Security completed on: $(date)"
+    echo "=================================="
 }
 
 # Execute Script
