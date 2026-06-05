@@ -22,7 +22,23 @@ process_vitals() {
 
 water_audit() {
 
-    # Landry writes here
+
+    echo "=================================="
+    echo "Running ICU water reserve audit... $(date)"
+    echo "=================================="
+    # Calculate average water usage from log file
+    awk -F'|' '
+    /ICU_WATER_RESERVE/ {
+        total += $3
+        count++
+    }
+    END {
+        if (count > 0)
+            printf "Average ICU Water Usage: %.2f Liters/min\n", total/count
+        else
+            print "No ICU water reserve data found."
+    }
+    ' active_logs/water_usage_log.log   
 
 }
 
