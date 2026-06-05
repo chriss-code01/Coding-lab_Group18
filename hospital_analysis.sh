@@ -25,7 +25,7 @@ process_vitals() {
     }
     ' > reports/critical_alerts.txt
 
-		    echo "Critical alerts saved."
+		    echo "Critical alerts saved Successfull."
 
 }
 
