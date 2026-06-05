@@ -11,7 +11,21 @@
 
 process_vitals() {
 
-    # Favour writes here
+  echo "=================================="
+    echo "Processing critical patient vitals..."
+    echo "=================================="
+
+    mkdir -p reports
+
+    grep "CRITICAL" active_logs/heart_rate_log.log active_logs/temperature_log.log 2>/dev/null | \
+    awk -F'|' '
+    {
+        printf "Timestamp: %s | Device_ID: %s | Value: %s\n",
+        $1, $2, $3
+    }
+    ' > reports/critical_alerts.txt
+
+		    echo "Critical alerts saved Successfull."
 
 }
 
@@ -22,23 +36,7 @@ process_vitals() {
 
 water_audit() {
 
-
-    echo "=================================="
-    echo "Running ICU water reserve audit... $(date)"
-    echo "=================================="
-    # Calculate average water usage from log file
-    awk -F'|' '
-    /ICU_WATER_RESERVE/ {
-        total += $3
-        count++
-    }
-    END {
-        if (count > 0)
-            printf "Average ICU Water Usage: %.2f Liters/min\n", total/count
-        else
-            print "No ICU water reserve data found."
-    }
-    ' active_logs/water_usage_log.log   
+    # Landry writes here
 
 }
 
